@@ -47,6 +47,6 @@ public class MyClass(YnabApiClient ynabClient)
 
 ## License
 
-Copyright (c) 2024 Tom Bulatewicz
+Copyright (c) 2025 Tom Bulatewicz
 
 Licensed under the MIT license

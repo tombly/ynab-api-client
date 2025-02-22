@@ -3,14 +3,14 @@
   <PropertyGroup>
     <Title>YNAB .NET API Client</Title>
     <PackageDescription>A client for calling YNAB's API from .NET</PackageDescription>
-    <PackageId>YNAB.API.CLIENT</PackageId>
+    <PackageId>Ynab.Api.Client</PackageId>
     <PackageTags>ynab;api;client;dotnetcore;dotnet;sdk</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Tom Bulatewicz</Authors>
     <PackageProjectUrl>https://github.com/tombly/ynab-api-client</PackageProjectUrl>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Ynab.Api.Client</RootNamespace>
-    <Copyright>2024 Tom Bulatewicz</Copyright>
+    <Copyright>2025 Tom Bulatewicz</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
