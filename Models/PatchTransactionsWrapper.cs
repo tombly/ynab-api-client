@@ -1,12 +1,12 @@
-﻿namespace Ynab.Api.Client;
+namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class PatchTransactionsWrapper
 {
+
     [System.Text.Json.Serialization.JsonPropertyName("transactions")]
-    [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.Never)]
     [System.ComponentModel.DataAnnotations.Required]
-    public System.Collections.Generic.ICollection<SaveTransactionWithId> Transactions { get; set; } = new System.Collections.ObjectModel.Collection<SaveTransactionWithId>();
+    public System.Collections.Generic.ICollection<SaveTransactionWithIdOrImportId> Transactions { get; set; } = new System.Collections.ObjectModel.Collection<SaveTransactionWithIdOrImportId>();
 
     private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
 
@@ -16,4 +16,5 @@ public partial class PatchTransactionsWrapper
         get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
         set { _additionalProperties = value; }
     }
+
 }

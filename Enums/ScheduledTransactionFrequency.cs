@@ -1,8 +1,12 @@
-﻿namespace Ynab.Api.Client;
+namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
-public enum ScheduledTransactionSummaryFrequency
+/// <summary>
+/// The scheduled transaction frequency
+/// </summary>
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+public enum ScheduledTransactionFrequency
 {
+
     [System.Runtime.Serialization.EnumMember(Value = @"never")]
     Never = 0,
 
@@ -41,4 +45,5 @@ public enum ScheduledTransactionSummaryFrequency
 
     [System.Runtime.Serialization.EnumMember(Value = @"everyOtherYear")]
     EveryOtherYear = 12,
+
 }

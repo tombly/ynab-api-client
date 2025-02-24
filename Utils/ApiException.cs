@@ -1,6 +1,6 @@
-﻿namespace Ynab.Api.Client;
+namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NSwag", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class ApiException : System.Exception
 {
     public int StatusCode { get; private set; }
@@ -20,17 +20,5 @@ public partial class ApiException : System.Exception
     public override string ToString()
     {
         return string.Format("HTTP Response: \n\n{0}\n\n{1}", Response, base.ToString());
-    }
-}
-
-[System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class ApiException<TResult> : ApiException
-{
-    public TResult Result { get; private set; }
-
-    public ApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception? innerException)
-        : base(message, statusCode, response, headers, innerException)
-    {
-        Result = result;
     }
 }

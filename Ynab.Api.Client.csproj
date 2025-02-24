@@ -5,10 +5,10 @@
     <PackageDescription>A client for calling YNAB's API from .NET</PackageDescription>
     <PackageId>Ynab.Api.Client</PackageId>
     <PackageTags>ynab;api;client;dotnetcore;dotnet;sdk</PackageTags>
-    <Version>1.0.2</Version>
+    <Version>1.73.0</Version>
     <Authors>Tom Bulatewicz</Authors>
     <PackageProjectUrl>https://github.com/tombly/ynab-api-client</PackageProjectUrl>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>Ynab.Api.Client</RootNamespace>
     <Copyright>2025 Tom Bulatewicz</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

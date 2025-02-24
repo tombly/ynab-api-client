@@ -1,12 +1,10 @@
-﻿namespace Ynab.Api.Client;
+namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.0.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class TransactionResponse
 {
 
     [System.Text.Json.Serialization.JsonPropertyName("data")]
-
-    [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.Never)]   
     [System.ComponentModel.DataAnnotations.Required]
     public TransactionData Data { get; set; } = new TransactionData();
 

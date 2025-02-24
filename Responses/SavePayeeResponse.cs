@@ -1,12 +1,12 @@
 namespace Ynab.Api.Client;
 
 [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class PostAccountWrapper
+public partial class SavePayeeResponse
 {
 
-    [System.Text.Json.Serialization.JsonPropertyName("account")]
+    [System.Text.Json.Serialization.JsonPropertyName("data")]
     [System.ComponentModel.DataAnnotations.Required]
-    public SaveAccount Account { get; set; } = new SaveAccount();
+    public SavePayeeData Data { get; set; } = new SavePayeeData();
 
     private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
 
