@@ -54,6 +54,7 @@ Click `Generate files`. It generates one big file so you can use [Rider](https:/
 - Move files with the suffix `Data` into Responses
 - Move remaining files into Models
 - Rename each file with the suffix `Data` based on the response that uses it.
+- Use your favorite AI agent to extract an `IYnabApiClient` interface.
 
 ## License
 

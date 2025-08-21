@@ -25,7 +25,7 @@ namespace Ynab.Api.Client
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class YnabApiClient 
+    public partial class YnabApiClient : IYnabApiClient
     {
         #pragma warning disable 8618
         private string _baseUrl;

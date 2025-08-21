@@ -5,7 +5,7 @@
     <PackageDescription>A client for calling YNAB's API from .NET</PackageDescription>
     <PackageId>Ynab.Api.Client</PackageId>
     <PackageTags>ynab;api;client;dotnetcore;dotnet;sdk</PackageTags>
-    <Version>1.73.0</Version>
+    <Version>1.73.1</Version>
     <Authors>Tom Bulatewicz</Authors>
     <PackageProjectUrl>https://github.com/tombly/ynab-api-client</PackageProjectUrl>
     <TargetFramework>net9.0</TargetFramework>
