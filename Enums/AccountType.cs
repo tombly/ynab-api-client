@@ -3,47 +3,47 @@ namespace Ynab.Api.Client;
 /// <summary>
 /// The type of account
 /// </summary>
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public enum AccountType
 {
 
-    [System.Runtime.Serialization.EnumMember(Value = @"checking")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"checking")]
     Checking = 0,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"savings")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"savings")]
     Savings = 1,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"cash")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"cash")]
     Cash = 2,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"creditCard")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"creditCard")]
     CreditCard = 3,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"lineOfCredit")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"lineOfCredit")]
     LineOfCredit = 4,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"otherAsset")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"otherAsset")]
     OtherAsset = 5,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"otherLiability")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"otherLiability")]
     OtherLiability = 6,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"mortgage")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"mortgage")]
     Mortgage = 7,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"autoLoan")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"autoLoan")]
     AutoLoan = 8,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"studentLoan")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"studentLoan")]
     StudentLoan = 9,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"personalLoan")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"personalLoan")]
     PersonalLoan = 10,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"medicalDebt")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"medicalDebt")]
     MedicalDebt = 11,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"otherDebt")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"otherDebt")]
     OtherDebt = 12,
 
 }

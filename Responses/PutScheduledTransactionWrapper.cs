@@ -1,18 +1,12 @@
 namespace Ynab.Api.Client;
 
 [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class BudgetDetailData
+public partial class PutScheduledTransactionWrapper
 {
 
-    [System.Text.Json.Serialization.JsonPropertyName("budget")]
+    [System.Text.Json.Serialization.JsonPropertyName("scheduled_transaction")]
     [System.ComponentModel.DataAnnotations.Required]
-    public BudgetDetail Budget { get; set; } = default!;
-
-    /// <summary>
-    /// The knowledge of the server
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("server_knowledge")]
-    public long Server_knowledge { get; set; } = default!;
+    public SaveScheduledTransaction Scheduled_transaction { get; set; } = new SaveScheduledTransaction();
 
     private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
 

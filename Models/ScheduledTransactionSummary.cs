@@ -1,6 +1,6 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class ScheduledTransactionSummary
 {
 
@@ -11,7 +11,6 @@ public partial class ScheduledTransactionSummary
     /// <summary>
     /// The first date for which the Scheduled Transaction was scheduled.
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("date_first")]
     [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
     [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
@@ -20,7 +19,6 @@ public partial class ScheduledTransactionSummary
     /// <summary>
     /// The next date for which the Scheduled Transaction is scheduled.
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("date_next")]
     [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
     [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
@@ -28,13 +26,12 @@ public partial class ScheduledTransactionSummary
 
     [System.Text.Json.Serialization.JsonPropertyName("frequency")]
     [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter))]
-    public ScheduledTransactionFrequency Frequency { get; set; } = default!;
+    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<ScheduledTransactionSummaryFrequency>))]
+    public ScheduledTransactionSummaryFrequency Frequency { get; set; } = default!;
 
     /// <summary>
     /// The scheduled transaction amount in milliunits format
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("amount")]
     public long Amount { get; set; } = default!;
 
@@ -42,7 +39,7 @@ public partial class ScheduledTransactionSummary
     public string? Memo { get; set; } = default!;
 
     [System.Text.Json.Serialization.JsonPropertyName("flag_color")]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter))]
+    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<TransactionFlagColor>))]
     public TransactionFlagColor? Flag_color { get; set; } = default!;
 
     [System.Text.Json.Serialization.JsonPropertyName("flag_name")]
@@ -61,14 +58,12 @@ public partial class ScheduledTransactionSummary
     /// <summary>
     /// If a transfer, the account_id which the scheduled transaction transfers to
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("transfer_account_id")]
     public System.Guid? Transfer_account_id { get; set; } = default!;
 
     /// <summary>
     /// Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests.
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("deleted")]
     public bool Deleted { get; set; } = default!;
 

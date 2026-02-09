@@ -1,6 +1,6 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class Payee
 {
 
@@ -15,14 +15,12 @@ public partial class Payee
     /// <summary>
     /// If a transfer payee, the `account_id` to which this payee transfers to
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("transfer_account_id")]
     public string? Transfer_account_id { get; set; } = default!;
 
     /// <summary>
     /// Whether or not the payee has been deleted.  Deleted payees will only be included in delta requests.
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("deleted")]
     public bool Deleted { get; set; } = default!;
 

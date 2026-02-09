@@ -1,12 +1,12 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class SavePayee
 {
+
     /// <summary>
     /// The name of the payee. The name must be a maximum of 500 characters.
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("name")]
     [System.ComponentModel.DataAnnotations.StringLength(500)]
     public string? Name { get; set; } = default!;

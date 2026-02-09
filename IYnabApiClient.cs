@@ -807,7 +807,7 @@ namespace Ynab.Api.Client
         /// <param name="last_knowledge_of_server">The starting server knowledge.  If provided, only entities that have changed since `last_knowledge_of_server` will be included.</param>
         /// <returns>The list of requested transactions</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task<HybridTransactionsResponse> GetTransactionsByMonthAsync(string budget_id, string month, DateTimeOffset? since_date, Type? type, long? last_knowledge_of_server);
+        Task<TransactionsResponse> GetTransactionsByMonthAsync(string budget_id, string month, DateTimeOffset? since_date, Type? type, long? last_knowledge_of_server);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -823,7 +823,7 @@ namespace Ynab.Api.Client
         /// <param name="last_knowledge_of_server">The starting server knowledge.  If provided, only entities that have changed since `last_knowledge_of_server` will be included.</param>
         /// <returns>The list of requested transactions</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task<HybridTransactionsResponse> GetTransactionsByMonthAsync(string budget_id, string month, DateTimeOffset? since_date, Type? type, long? last_knowledge_of_server, CancellationToken cancellationToken);
+        Task<TransactionsResponse> GetTransactionsByMonthAsync(string budget_id, string month, DateTimeOffset? since_date, Type? type, long? last_knowledge_of_server, CancellationToken cancellationToken);
 
         /// <summary>
         /// List scheduled transactions
@@ -899,5 +899,57 @@ namespace Ynab.Api.Client
         /// <returns>The requested scheduled transaction</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         Task<ScheduledTransactionResponse> GetScheduledTransactionByIdAsync(string budget_id, string scheduled_transaction_id, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Updates an existing scheduled transaction
+        /// </summary>
+        /// <remarks>
+        /// Updates a single scheduled transaction
+        /// </remarks>
+        /// <param name="budget_id">The id of the budget. "last-used" can be used to specify the last used budget and "default" can be used if default budget selection is enabled.</param>
+        /// <param name="scheduled_transaction_id">The id of the scheduled transaction</param>
+        /// <param name="body">The scheduled transaction to update</param>
+        /// <returns>The scheduled transaction was successfully updated</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        Task<ScheduledTransactionResponse> UpdateScheduledTransactionAsync(string budget_id, string scheduled_transaction_id, PutScheduledTransactionWrapper body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Updates an existing scheduled transaction
+        /// </summary>
+        /// <remarks>
+        /// Updates a single scheduled transaction
+        /// </remarks>
+        /// <param name="budget_id">The id of the budget. "last-used" can be used to specify the last used budget and "default" can be used if default budget selection is enabled.</param>
+        /// <param name="scheduled_transaction_id">The id of the scheduled transaction</param>
+        /// <param name="body">The scheduled transaction to update</param>
+        /// <returns>The scheduled transaction was successfully updated</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        Task<ScheduledTransactionResponse> UpdateScheduledTransactionAsync(string budget_id, string scheduled_transaction_id, PutScheduledTransactionWrapper body, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Deletes an existing scheduled transaction
+        /// </summary>
+        /// <remarks>
+        /// Deletes a scheduled transaction
+        /// </remarks>
+        /// <param name="budget_id">The id of the budget. "last-used" can be used to specify the last used budget and "default" can be used if default budget selection is enabled.</param>
+        /// <param name="scheduled_transaction_id">The id of the scheduled transaction</param>
+        /// <returns>The scheduled transaction was successfully deleted</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        Task<ScheduledTransactionResponse> DeleteScheduledTransactionAsync(string budget_id, string scheduled_transaction_id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Deletes an existing scheduled transaction
+        /// </summary>
+        /// <remarks>
+        /// Deletes a scheduled transaction
+        /// </remarks>
+        /// <param name="budget_id">The id of the budget. "last-used" can be used to specify the last used budget and "default" can be used if default budget selection is enabled.</param>
+        /// <param name="scheduled_transaction_id">The id of the scheduled transaction</param>
+        /// <returns>The scheduled transaction was successfully deleted</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        Task<ScheduledTransactionResponse> DeleteScheduledTransactionAsync(string budget_id, string scheduled_transaction_id, CancellationToken cancellationToken);
     }
 }

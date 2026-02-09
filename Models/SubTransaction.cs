@@ -1,6 +1,6 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class SubTransaction
 {
 
@@ -15,7 +15,6 @@ public partial class SubTransaction
     /// <summary>
     /// The subtransaction amount in milliunits format
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("amount")]
     public long Amount { get; set; } = default!;
 
@@ -37,21 +36,18 @@ public partial class SubTransaction
     /// <summary>
     /// If a transfer, the account_id which the subtransaction transfers to
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("transfer_account_id")]
     public System.Guid? Transfer_account_id { get; set; } = default!;
 
     /// <summary>
     /// If a transfer, the id of transaction on the other side of the transfer
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("transfer_transaction_id")]
     public string? Transfer_transaction_id { get; set; } = default!;
 
     /// <summary>
     /// Whether or not the subtransaction has been deleted.  Deleted subtransactions will only be included in delta requests.
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("deleted")]
     public bool Deleted { get; set; } = default!;
 

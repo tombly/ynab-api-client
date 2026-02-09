@@ -1,31 +1,31 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public enum TransactionSummaryDebtTransactionType
 {
 
-    [System.Runtime.Serialization.EnumMember(Value = @"payment")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"payment")]
     Payment = 0,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"refund")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"refund")]
     Refund = 1,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"fee")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"fee")]
     Fee = 2,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"interest")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"interest")]
     Interest = 3,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"escrow")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"escrow")]
     Escrow = 4,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"balanceAdjustment")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"balanceAdjustment")]
     BalanceAdjustment = 5,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"credit")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"credit")]
     Credit = 6,
 
-    [System.Runtime.Serialization.EnumMember(Value = @"charge")]
+    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"charge")]
     Charge = 7,
 
 }

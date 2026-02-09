@@ -1,6 +1,6 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class BudgetSummary
 {
 
@@ -15,14 +15,12 @@ public partial class BudgetSummary
     /// <summary>
     /// The last time any changes were made to the budget from either a web or mobile client
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("last_modified_on")]
     public System.DateTimeOffset? Last_modified_on { get; set; } = default!;
 
     /// <summary>
     /// The earliest budget month
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("first_month")]
     [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
     public System.DateTimeOffset? First_month { get; set; } = default!;
@@ -30,7 +28,6 @@ public partial class BudgetSummary
     /// <summary>
     /// The latest budget month
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("last_month")]
     [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
     public System.DateTimeOffset? Last_month { get; set; } = default!;
@@ -44,7 +41,6 @@ public partial class BudgetSummary
     /// <summary>
     /// The budget accounts (only included if `include_accounts=true` specified as query parameter)
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("accounts")]
     public System.Collections.Generic.ICollection<Account>? Accounts { get; set; } = default!;
 

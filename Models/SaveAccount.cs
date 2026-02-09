@@ -1,25 +1,24 @@
 namespace Ynab.Api.Client;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
 public partial class SaveAccount
 {
+
     /// <summary>
     /// The name of the account
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("name")]
     [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
     public string Name { get; set; } = default!;
 
     [System.Text.Json.Serialization.JsonPropertyName("type")]
     [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter))]
+    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<AccountType>))]
     public AccountType Type { get; set; } = default!;
 
     /// <summary>
     /// The current balance of the account in milliunits format
     /// </summary>
-
     [System.Text.Json.Serialization.JsonPropertyName("balance")]
     public long Balance { get; set; } = default!;
 
