@@ -20,9 +20,22 @@ public partial class YnabApiClient : IYnabApiClient
         Initialize();
     }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    public YnabApiClient(System.Net.Http.HttpClient httpClient, System.Text.Json.JsonSerializerOptions serializerSettings)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    {
+        BaseUrl = "https://api.ynab.com/v1";
+        _httpClient = httpClient;
+        _instanceSettings = serializerSettings;
+        Initialize();
+    }
+
     private static System.Text.Json.JsonSerializerOptions CreateSerializerSettings()
     {
-        var settings = new System.Text.Json.JsonSerializerOptions();
+        var settings = new System.Text.Json.JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+        };
         UpdateJsonSerializerSettings(settings);
         return settings;
     }
@@ -2714,7 +2727,7 @@ public partial class YnabApiClient : IYnabApiClient
                     ProcessResponse(client_, response_);
 
                     var status_ = (int)response_.StatusCode;
-                    if (status_ == 209)
+                    if (status_ == 200 || status_ == 209)
                     {
                         var objectResponse_ = await ReadObjectResponseAsync<SaveTransactionsResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                         if (objectResponse_.Object == null)
