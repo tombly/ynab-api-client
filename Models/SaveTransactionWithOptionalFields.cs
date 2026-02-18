@@ -54,7 +54,6 @@ public partial class SaveTransactionWithOptionalFields
     public bool? Approved { get; set; } = default!;
 
     [System.Text.Json.Serialization.JsonPropertyName("flag_color")]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<TransactionFlagColor>))]
     public TransactionFlagColor? Flag_color { get; set; } = default!;
 
     /// <summary>

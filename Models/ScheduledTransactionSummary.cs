@@ -39,7 +39,6 @@ public partial class ScheduledTransactionSummary
     public string? Memo { get; set; } = default!;
 
     [System.Text.Json.Serialization.JsonPropertyName("flag_color")]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<TransactionFlagColor>))]
     public TransactionFlagColor? Flag_color { get; set; } = default!;
 
     [System.Text.Json.Serialization.JsonPropertyName("flag_name")]
