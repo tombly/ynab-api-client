@@ -1,6 +1,8 @@
 # YNAB.API.Client
 
-A simple and maintainable .NET 9+ client for the [YNAB API](https://api.youneedabudget.com). This client was generated using [NSwag Studio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) with very few manual changes and has no dependencies. This allows the client to be quickly regenerated as both the YNAB API and .NET SDK evolve over the years. The version number (major/minor) matches the [YNAB API version](https://api.ynab.com/#changelog) it was built from.
+A simple and maintainable .NET 9+ client for the [YNAB API](https://api.youneedabudget.com). This client was generated using [NSwag Studio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) with very few manual changes and has no dependencies. This allows the client to be quickly regenerated as both the YNAB API and .NET SDK evolve over the years. 
+
+The version number's Major/Minor/Patch reflects the [YNAB API version](https://api.ynab.com/#changelog) it was built from. For example, 1.77.0.2 means that the client is compatible with versino 1.77.0 of the YNAB API and it's the second update to the client. 
 
 ## Usage
 
