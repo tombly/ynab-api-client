@@ -1,24 +1,34 @@
-namespace Ynab.Api.Client;
+namespace Ynab.Api.Client.Utils;
 
-[System.CodeDom.Compiler.GeneratedCode("NSwag", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class ApiException : System.Exception
+/// <summary>Thrown when the YNAB API returns a non-success status code.</summary>
+public class ApiException(
+    string message,
+    int statusCode,
+    string? response,
+    IReadOnlyDictionary<string, IEnumerable<string>> headers,
+    Exception? innerException = null)
+    : Exception(message, innerException)
 {
-    public int StatusCode { get; private set; }
+    /// <summary>The HTTP status code of the response.</summary>
+    public int StatusCode { get; } = statusCode;
 
-    public string? Response { get; private set; }
+    /// <summary>The raw response body, if any.</summary>
+    public string? Response { get; } = response;
 
-    public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
+    /// <summary>The response headers, including rate-limit information (X-Rate-Limit).</summary>
+    public IReadOnlyDictionary<string, IEnumerable<string>> Headers { get; } = headers;
+}
 
-    public ApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception? innerException)
-        : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
-    {
-        StatusCode = statusCode;
-        Response = response;
-        Headers = headers;
-    }
-
-    public override string ToString()
-    {
-        return string.Format("HTTP Response: \n\n{0}\n\n{1}", Response, base.ToString());
-    }
+/// <summary>Thrown when the YNAB API returns a non-success status code with a parseable error body.</summary>
+public sealed class ApiException<TResult>(
+    string message,
+    int statusCode,
+    string? response,
+    IReadOnlyDictionary<string, IEnumerable<string>> headers,
+    TResult result,
+    Exception? innerException = null)
+    : ApiException(message, statusCode, response, headers, innerException)
+{
+    /// <summary>The deserialized error body.</summary>
+    public TResult Result { get; } = result;
 }

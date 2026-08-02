@@ -5,7 +5,8 @@
     <PackageDescription>A client for calling YNAB's API from .NET</PackageDescription>
     <PackageId>Ynab.Api.Client</PackageId>
     <PackageTags>ynab;api;client;dotnetcore;dotnet;sdk</PackageTags>
-    <Version>1.77.0.1</Version>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes>Tracks YNAB API v1.86.0. Breaking release — see MIGRATING.md in the repo. Budgets are now plans (GetBudgetsAsync is now GetPlansAsync, etc.) following the YNAB API rename, and the API surface is modernized: PascalCase record models with required/init members, DateOnly for dates, single methods with optional parameters, TransactionFilterType enum, namespace-level ApiException. Adds category/category group/payee creation, money movement endpoints, until_date filtering, formatted/currency amount fields, and recurring goal frequency.</PackageReleaseNotes>
     <Authors>Tom Bulatewicz</Authors>
     <PackageProjectUrl>https://github.com/tombly/ynab-api-client</PackageProjectUrl>
     <TargetFramework>net10.0</TargetFramework>
@@ -20,7 +21,18 @@
     <RepositoryType>git</RepositoryType>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tests/**" />
+    <None Remove="Tests/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Ynab.Api.Client.Tests" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="icon.png">

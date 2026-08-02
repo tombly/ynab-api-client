@@ -1,23 +1,13 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-/// <summary>
-/// The date format setting for the budget.  In some cases the format will not be available and will be specified as null.
-/// </summary>
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class DateFormat
+namespace Ynab.Api.Client.Models;
+
+    /// <summary>The date format setting for the plan.  In some cases the format will not be available and will be specified as null.</summary>
+public sealed record DateFormat
 {
+    [JsonPropertyName("format")]
+    public required string Format { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("format")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Format { get; set; } = default!;
-
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

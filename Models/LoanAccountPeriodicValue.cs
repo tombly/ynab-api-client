@@ -1,7 +1,4 @@
-namespace Ynab.Api.Client;
+namespace Ynab.Api.Client.Models;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class LoanAccountPeriodicValue : System.Collections.Generic.Dictionary<string, long>
-{
-
-}
+/// <summary>A map of loan account periodic values (e.g. interest rates) keyed by date.</summary>
+public sealed class LoanAccountPeriodicValue : Dictionary<string, long>;

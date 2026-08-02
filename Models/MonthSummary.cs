@@ -1,60 +1,71 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class MonthSummary
+namespace Ynab.Api.Client.Models;
+
+public record MonthSummary
 {
+    [JsonPropertyName("month")]
+    public required DateOnly Month { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("month")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
-    public System.DateTimeOffset Month { get; set; } = default!;
+    [JsonPropertyName("note")]
+    public string? Note { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("note")]
-    public string? Note { get; set; } = default!;
+    /// <summary>The total amount of transactions categorized to 'Inflow: Ready to Assign' in the month</summary>
+    [JsonPropertyName("income")]
+    public required long Income { get; init; }
 
-    /// <summary>
-    /// The total amount of transactions categorized to 'Inflow: Ready to Assign' in the month
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("income")]
-    public long Income { get; set; } = default!;
+    /// <summary>The total amount budgeted in the month</summary>
+    [JsonPropertyName("budgeted")]
+    public required long Budgeted { get; init; }
 
-    /// <summary>
-    /// The total amount budgeted in the month
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("budgeted")]
-    public long Budgeted { get; set; } = default!;
+    /// <summary>The total amount of transactions in the month, excluding those categorized to 'Inflow: Ready to Assign'</summary>
+    [JsonPropertyName("activity")]
+    public required long Activity { get; init; }
 
-    /// <summary>
-    /// The total amount of transactions in the month, excluding those categorized to 'Inflow: Ready to Assign'
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("activity")]
-    public long Activity { get; set; } = default!;
+    /// <summary>The available amount for 'Ready to Assign'</summary>
+    [JsonPropertyName("to_be_budgeted")]
+    public required long ToBeBudgeted { get; init; }
 
-    /// <summary>
-    /// The available amount for 'Ready to Assign'
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("to_be_budgeted")]
-    public long To_be_budgeted { get; set; } = default!;
+    /// <summary>The Age of Money as of the month</summary>
+    [JsonPropertyName("age_of_money")]
+    public int? AgeOfMoney { get; init; }
 
-    /// <summary>
-    /// The Age of Money as of the month
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("age_of_money")]
-    public int? Age_of_money { get; set; } = default!;
+    /// <summary>Whether or not the month has been deleted.  Deleted months will only be included in delta requests.</summary>
+    [JsonPropertyName("deleted")]
+    public required bool Deleted { get; init; }
 
-    /// <summary>
-    /// Whether or not the month has been deleted.  Deleted months will only be included in delta requests.
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("deleted")]
-    public bool Deleted { get; set; } = default!;
+    /// <summary>The total income formatted in the plan's currency format</summary>
+    [JsonPropertyName("income_formatted")]
+    public string? IncomeFormatted { get; init; }
 
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
+    /// <summary>The total income as a decimal currency amount</summary>
+    [JsonPropertyName("income_currency")]
+    public double? IncomeCurrency { get; init; }
 
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
+    /// <summary>The total amount assigned formatted in the plan's currency format</summary>
+    [JsonPropertyName("budgeted_formatted")]
+    public string? BudgetedFormatted { get; init; }
 
+    /// <summary>The total amount assigned as a decimal currency amount</summary>
+    [JsonPropertyName("budgeted_currency")]
+    public double? BudgetedCurrency { get; init; }
+
+    /// <summary>The total activity amount formatted in the plan's currency format</summary>
+    [JsonPropertyName("activity_formatted")]
+    public string? ActivityFormatted { get; init; }
+
+    /// <summary>The total activity amount as a decimal currency amount</summary>
+    [JsonPropertyName("activity_currency")]
+    public double? ActivityCurrency { get; init; }
+
+    /// <summary>The available amount for 'Ready to Assign' formatted in the plan's currency format</summary>
+    [JsonPropertyName("to_be_budgeted_formatted")]
+    public string? ToBeBudgetedFormatted { get; init; }
+
+    /// <summary>The available amount for 'Ready to Assign' as a decimal currency amount</summary>
+    [JsonPropertyName("to_be_budgeted_currency")]
+    public double? ToBeBudgetedCurrency { get; init; }
+
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

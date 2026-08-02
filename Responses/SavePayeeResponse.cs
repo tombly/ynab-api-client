@@ -1,20 +1,17 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
+using Ynab.Api.Client.Models;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class SavePayeeResponse
+namespace Ynab.Api.Client.Responses;
+
+public sealed record SavePayeeResponse
 {
+    [JsonPropertyName("payee")]
+    public required Payee Payee { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("data")]
-    [System.ComponentModel.DataAnnotations.Required]
-    public SavePayeeData Data { get; set; } = new SavePayeeData();
+    /// <summary>The knowledge of the server</summary>
+    [JsonPropertyName("server_knowledge")]
+    public required long ServerKnowledge { get; init; }
 
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

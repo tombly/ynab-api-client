@@ -1,31 +1,28 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-/// <summary>
-/// The transaction flag
-/// </summary>
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
+namespace Ynab.Api.Client.Enums;
+
+/// <summary>The transaction flag</summary>
 public enum TransactionFlagColor
 {
+    [JsonStringEnumMemberName("red")]
+    Red,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"red")]
-    Red = 0,
+    [JsonStringEnumMemberName("orange")]
+    Orange,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"orange")]
-    Orange = 1,
+    [JsonStringEnumMemberName("yellow")]
+    Yellow,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"yellow")]
-    Yellow = 2,
+    [JsonStringEnumMemberName("green")]
+    Green,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"green")]
-    Green = 3,
+    [JsonStringEnumMemberName("blue")]
+    Blue,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"blue")]
-    Blue = 4,
+    [JsonStringEnumMemberName("purple")]
+    Purple,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"purple")]
-    Purple = 5,
-
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"")]
-    Empty = 6,
-
+    [JsonStringEnumMemberName("")]
+    Empty,
 }

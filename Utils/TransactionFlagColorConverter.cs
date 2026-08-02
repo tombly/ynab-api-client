@@ -1,21 +1,17 @@
-namespace Ynab.Api.Client;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Ynab.Api.Client.Enums;
+
+namespace Ynab.Api.Client.Utils;
 
 /// <summary>
-/// Custom JSON converter for TransactionFlagColor that properly handles empty
-/// string values. This is not generated code, so it will not be overwritten
-/// by code generation tools, so don't remove this when regenerating the client
-/// code.
-/// 
-/// After regeneration, remove any [JsonConverter] attributes referencing the
-/// TransactionFlagColor enum (since the converter is now registered globally).
+/// Handles <see cref="TransactionFlagColor"/> values, which the YNAB API sends as
+/// color names or an empty string (mapped to <see cref="TransactionFlagColor.Empty"/>).
 /// </summary>
-internal class TransactionFlagColorConverter : System.Text.Json.Serialization.JsonConverter<TransactionFlagColor>
+internal sealed class TransactionFlagColorConverter : JsonConverter<TransactionFlagColor>
 {
-    public override TransactionFlagColor Read(ref System.Text.Json.Utf8JsonReader reader, System.Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
-    {
-        var value = reader.GetString();
-        
-        return value switch
+    public override TransactionFlagColor Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options)
+        => reader.GetString() switch
         {
             "" or null => TransactionFlagColor.Empty,
             "red" => TransactionFlagColor.Red,
@@ -24,13 +20,11 @@ internal class TransactionFlagColorConverter : System.Text.Json.Serialization.Js
             "green" => TransactionFlagColor.Green,
             "blue" => TransactionFlagColor.Blue,
             "purple" => TransactionFlagColor.Purple,
-            _ => throw new System.Text.Json.JsonException($"Unknown TransactionFlagColor value: '{value}'")
+            var value => throw new JsonException($"Unknown TransactionFlagColor value: '{value}'")
         };
-    }
 
-    public override void Write(System.Text.Json.Utf8JsonWriter writer, TransactionFlagColor value, System.Text.Json.JsonSerializerOptions options)
-    {
-        var stringValue = value switch
+    public override void Write(Utf8JsonWriter writer, TransactionFlagColor value, JsonSerializerOptions options)
+        => writer.WriteStringValue(value switch
         {
             TransactionFlagColor.Empty => "",
             TransactionFlagColor.Red => "red",
@@ -39,9 +33,6 @@ internal class TransactionFlagColorConverter : System.Text.Json.Serialization.Js
             TransactionFlagColor.Green => "green",
             TransactionFlagColor.Blue => "blue",
             TransactionFlagColor.Purple => "purple",
-            _ => throw new System.ArgumentException($"Unknown TransactionFlagColor value: {value}")
-        };
-        
-        writer.WriteStringValue(stringValue);
-    }
+            _ => throw new ArgumentException($"Unknown TransactionFlagColor value: {value}")
+        });
 }

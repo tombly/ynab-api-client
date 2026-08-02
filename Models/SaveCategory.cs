@@ -1,31 +1,35 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
+using Ynab.Api.Client.Enums;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class SaveCategory
+namespace Ynab.Api.Client.Models;
+
+public sealed record SaveCategory
 {
+    [JsonPropertyName("name")]
+    public string? Name { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("name")]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("note")]
+    public string? Note { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("note")]
-    public string? Note { get; set; } = default!;
+    [JsonPropertyName("category_group_id")]
+    public Guid? CategoryGroupId { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("category_group_id")]
-    public System.Guid? Category_group_id { get; set; } = default!;
+    /// <summary>The goal target amount in milliunits format.  If value is specified and goal has not already been configured for category, a monthly goal will be created for the category with this target amount.  If goal_type is not specified, it will default to 'NEED' or 'MF' for Credit Card Payment categories. When updating a category, passing null removes any existing target.</summary>
+    [JsonPropertyName("goal_target")]
+    public long? GoalTarget { get; init; }
 
-    /// <summary>
-    /// The goal target amount in milliunits format.  This amount can only be changed if the category already has a configured goal (goal_type != null).
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("goal_target")]
-    public long? Goal_target { get; set; } = default!;
+    /// <summary>The goal target date in ISO format (e.g. 2016-12-01).</summary>
+    [JsonPropertyName("goal_target_date")]
+    public DateOnly? GoalTargetDate { get; init; }
 
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
+    /// <summary>Whether the goal requires the full target amount each period. Only supported for 'NEED' goals. When true, the goal is configured as 'Set aside another...'. When false, the goal is configured as 'Refill up to...'.</summary>
+    [JsonPropertyName("goal_needs_whole_amount")]
+    public bool? GoalNeedsWholeAmount { get; init; }
 
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
+    /// <summary>When specified, configures a recurring 'NEED' target of goal_target that repeats at this frequency, replacing any existing target. Requires goal_target. Cannot be combined with goal_target_date and is not supported for Credit Card Payment categories. Omit to leave an existing target's cadence unchanged.</summary>
+    [JsonPropertyName("goal_frequency")]
+    public GoalFrequency? GoalFrequency { get; init; }
 
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

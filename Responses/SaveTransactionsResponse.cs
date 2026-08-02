@@ -1,20 +1,29 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
+using Ynab.Api.Client.Models;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class SaveTransactionsResponse
+namespace Ynab.Api.Client.Responses;
+
+public sealed record SaveTransactionsResponse
 {
+    /// <summary>The transaction ids that were saved</summary>
+    [JsonPropertyName("transaction_ids")]
+    public required IReadOnlyList<string> TransactionIds { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("data")]
-    [System.ComponentModel.DataAnnotations.Required]
-    public SaveTransactionsData Data { get; set; } = new SaveTransactionsData();
+    [JsonPropertyName("transaction")]
+    public TransactionDetail? Transaction { get; init; }
 
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
+    /// <summary>If multiple transactions were specified, the transactions that were saved</summary>
+    [JsonPropertyName("transactions")]
+    public IReadOnlyList<TransactionDetail>? Transactions { get; init; }
 
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
+    /// <summary>If multiple transactions were specified, a list of import_ids that were not created because of an existing `import_id` found on the same account</summary>
+    [JsonPropertyName("duplicate_import_ids")]
+    public IReadOnlyList<string>? DuplicateImportIds { get; init; }
 
+    /// <summary>The knowledge of the server</summary>
+    [JsonPropertyName("server_knowledge")]
+    public required long ServerKnowledge { get; init; }
+
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

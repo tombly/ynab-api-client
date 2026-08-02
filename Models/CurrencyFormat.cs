@@ -1,48 +1,34 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-/// <summary>
-/// The currency format setting for the budget.  In some cases the format will not be available and will be specified as null.
-/// </summary>
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class CurrencyFormat
+namespace Ynab.Api.Client.Models;
+
+    /// <summary>The currency format setting for the plan.  In some cases the format will not be available and will be specified as null.</summary>
+public sealed record CurrencyFormat
 {
+    [JsonPropertyName("iso_code")]
+    public required string IsoCode { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("iso_code")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Iso_code { get; set; } = default!;
+    [JsonPropertyName("example_format")]
+    public required string ExampleFormat { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("example_format")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Example_format { get; set; } = default!;
+    [JsonPropertyName("decimal_digits")]
+    public required int DecimalDigits { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("decimal_digits")]
-    public int Decimal_digits { get; set; } = default!;
+    [JsonPropertyName("decimal_separator")]
+    public required string DecimalSeparator { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("decimal_separator")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Decimal_separator { get; set; } = default!;
+    [JsonPropertyName("symbol_first")]
+    public required bool SymbolFirst { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("symbol_first")]
-    public bool Symbol_first { get; set; } = default!;
+    [JsonPropertyName("group_separator")]
+    public required string GroupSeparator { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("group_separator")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Group_separator { get; set; } = default!;
+    [JsonPropertyName("currency_symbol")]
+    public required string CurrencySymbol { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("currency_symbol")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Currency_symbol { get; set; } = default!;
+    [JsonPropertyName("display_symbol")]
+    public required bool DisplaySymbol { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("display_symbol")]
-    public bool Display_symbol { get; set; } = default!;
-
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

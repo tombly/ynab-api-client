@@ -1,36 +1,27 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class CategoryGroup
+namespace Ynab.Api.Client.Models;
+
+public record CategoryGroup
 {
+    [JsonPropertyName("id")]
+    public required Guid Id { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("id")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public System.Guid Id { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public required string Name { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("name")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Name { get; set; } = default!;
+    /// <summary>Whether or not the category group is hidden</summary>
+    [JsonPropertyName("hidden")]
+    public required bool Hidden { get; init; }
 
-    /// <summary>
-    /// Whether or not the category group is hidden
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("hidden")]
-    public bool Hidden { get; set; } = default!;
+    /// <summary>Whether or not the category group is internal</summary>
+    [JsonPropertyName("internal")]
+    public required bool Internal { get; init; }
 
-    /// <summary>
-    /// Whether or not the category group has been deleted.  Deleted category groups will only be included in delta requests.
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("deleted")]
-    public bool Deleted { get; set; } = default!;
+    /// <summary>Whether or not the category group has been deleted.  Deleted category groups will only be included in delta requests.</summary>
+    [JsonPropertyName("deleted")]
+    public required bool Deleted { get; init; }
 
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

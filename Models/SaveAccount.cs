@@ -1,34 +1,21 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
+using Ynab.Api.Client.Enums;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class SaveAccount
+namespace Ynab.Api.Client.Models;
+
+public sealed record SaveAccount
 {
+    /// <summary>The name of the account</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; init; }
 
-    /// <summary>
-    /// The name of the account
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("name")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public string Name { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public required SaveAccountType Type { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("type")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<AccountType>))]
-    public AccountType Type { get; set; } = default!;
+    /// <summary>The current balance of the account in milliunits format</summary>
+    [JsonPropertyName("balance")]
+    public required long Balance { get; init; }
 
-    /// <summary>
-    /// The current balance of the account in milliunits format
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("balance")]
-    public long Balance { get; set; } = default!;
-
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

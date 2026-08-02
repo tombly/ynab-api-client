@@ -1,22 +1,21 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
+namespace Ynab.Api.Client.Enums;
+
 public enum CategoryGoalType
 {
+    [JsonStringEnumMemberName("TB")]
+    TB,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"TB")]
-    TB = 0,
+    [JsonStringEnumMemberName("TBD")]
+    TBD,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"TBD")]
-    TBD = 1,
+    [JsonStringEnumMemberName("MF")]
+    MF,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"MF")]
-    MF = 2,
+    [JsonStringEnumMemberName("NEED")]
+    NEED,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"NEED")]
-    NEED = 3,
-
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"DEBT")]
-    DEBT = 4,
-
+    [JsonStringEnumMemberName("DEBT")]
+    DEBT,
 }

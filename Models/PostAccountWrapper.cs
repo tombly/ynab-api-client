@@ -1,20 +1,12 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class PostAccountWrapper
+namespace Ynab.Api.Client.Models;
+
+public sealed record PostAccountWrapper
 {
+    [JsonPropertyName("account")]
+    public required SaveAccount Account { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("account")]
-    [System.ComponentModel.DataAnnotations.Required]
-    public SaveAccount Account { get; set; } = new SaveAccount();
-
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

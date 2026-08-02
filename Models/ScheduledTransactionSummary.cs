@@ -1,78 +1,62 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
+using Ynab.Api.Client.Enums;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class ScheduledTransactionSummary
+namespace Ynab.Api.Client.Models;
+
+public record ScheduledTransactionSummary
 {
+    [JsonPropertyName("id")]
+    public required Guid Id { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("id")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public System.Guid Id { get; set; } = default!;
+    /// <summary>The first date for which the Scheduled Transaction was scheduled.</summary>
+    [JsonPropertyName("date_first")]
+    public required DateOnly DateFirst { get; init; }
 
-    /// <summary>
-    /// The first date for which the Scheduled Transaction was scheduled.
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("date_first")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
-    public System.DateTimeOffset Date_first { get; set; } = default!;
+    /// <summary>The next date for which the Scheduled Transaction is scheduled.</summary>
+    [JsonPropertyName("date_next")]
+    public required DateOnly DateNext { get; init; }
 
-    /// <summary>
-    /// The next date for which the Scheduled Transaction is scheduled.
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("date_next")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(DateFormatConverter))]
-    public System.DateTimeOffset Date_next { get; set; } = default!;
+    [JsonPropertyName("frequency")]
+    public required ScheduledTransactionFrequency Frequency { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("frequency")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<ScheduledTransactionSummaryFrequency>))]
-    public ScheduledTransactionSummaryFrequency Frequency { get; set; } = default!;
+    /// <summary>The scheduled transaction amount in milliunits format</summary>
+    [JsonPropertyName("amount")]
+    public required long Amount { get; init; }
 
-    /// <summary>
-    /// The scheduled transaction amount in milliunits format
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("amount")]
-    public long Amount { get; set; } = default!;
+    [JsonPropertyName("memo")]
+    public string? Memo { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("memo")]
-    public string? Memo { get; set; } = default!;
+    [JsonPropertyName("flag_color")]
+    public TransactionFlagColor? FlagColor { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("flag_color")]
-    public TransactionFlagColor? Flag_color { get; set; } = default!;
+    [JsonPropertyName("flag_name")]
+    public string? FlagName { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("flag_name")]
-    public string? Flag_name { get; set; } = default!;
+    [JsonPropertyName("account_id")]
+    public required Guid AccountId { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("account_id")]
-    [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-    public System.Guid Account_id { get; set; } = default!;
+    [JsonPropertyName("payee_id")]
+    public Guid? PayeeId { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("payee_id")]
-    public System.Guid? Payee_id { get; set; } = default!;
+    [JsonPropertyName("category_id")]
+    public Guid? CategoryId { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("category_id")]
-    public System.Guid? Category_id { get; set; } = default!;
+    /// <summary>If a transfer, the account_id which the scheduled transaction transfers to</summary>
+    [JsonPropertyName("transfer_account_id")]
+    public Guid? TransferAccountId { get; init; }
 
-    /// <summary>
-    /// If a transfer, the account_id which the scheduled transaction transfers to
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("transfer_account_id")]
-    public System.Guid? Transfer_account_id { get; set; } = default!;
+    /// <summary>Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests.</summary>
+    [JsonPropertyName("deleted")]
+    public required bool Deleted { get; init; }
 
-    /// <summary>
-    /// Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests.
-    /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("deleted")]
-    public bool Deleted { get; set; } = default!;
+    /// <summary>The scheduled transaction amount formatted in the plan's currency format</summary>
+    [JsonPropertyName("amount_formatted")]
+    public string? AmountFormatted { get; init; }
 
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
+    /// <summary>The scheduled transaction amount as a decimal currency amount</summary>
+    [JsonPropertyName("amount_currency")]
+    public double? AmountCurrency { get; init; }
 
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

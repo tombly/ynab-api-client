@@ -1,20 +1,13 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class TransactionsImportResponse
+namespace Ynab.Api.Client.Responses;
+
+public sealed record TransactionsImportResponse
 {
+    /// <summary>The list of transaction ids that were imported.</summary>
+    [JsonPropertyName("transaction_ids")]
+    public required IReadOnlyList<string> TransactionIds { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("data")]
-    [System.ComponentModel.DataAnnotations.Required]
-    public TransactionsImportData Data { get; set; } = new TransactionsImportData();
-
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }

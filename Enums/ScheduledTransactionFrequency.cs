@@ -1,49 +1,46 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-/// <summary>
-/// The scheduled transaction frequency
-/// </summary>
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
+namespace Ynab.Api.Client.Enums;
+
+/// <summary>The scheduled transaction frequency</summary>
 public enum ScheduledTransactionFrequency
 {
+    [JsonStringEnumMemberName("never")]
+    Never,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"never")]
-    Never = 0,
+    [JsonStringEnumMemberName("daily")]
+    Daily,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"daily")]
-    Daily = 1,
+    [JsonStringEnumMemberName("weekly")]
+    Weekly,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"weekly")]
-    Weekly = 2,
+    [JsonStringEnumMemberName("everyOtherWeek")]
+    EveryOtherWeek,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"everyOtherWeek")]
-    EveryOtherWeek = 3,
+    [JsonStringEnumMemberName("twiceAMonth")]
+    TwiceAMonth,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"twiceAMonth")]
-    TwiceAMonth = 4,
+    [JsonStringEnumMemberName("every4Weeks")]
+    Every4Weeks,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"every4Weeks")]
-    Every4Weeks = 5,
+    [JsonStringEnumMemberName("monthly")]
+    Monthly,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"monthly")]
-    Monthly = 6,
+    [JsonStringEnumMemberName("everyOtherMonth")]
+    EveryOtherMonth,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"everyOtherMonth")]
-    EveryOtherMonth = 7,
+    [JsonStringEnumMemberName("every3Months")]
+    Every3Months,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"every3Months")]
-    Every3Months = 8,
+    [JsonStringEnumMemberName("every4Months")]
+    Every4Months,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"every4Months")]
-    Every4Months = 9,
+    [JsonStringEnumMemberName("twiceAYear")]
+    TwiceAYear,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"twiceAYear")]
-    TwiceAYear = 10,
+    [JsonStringEnumMemberName("yearly")]
+    Yearly,
 
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"yearly")]
-    Yearly = 11,
-
-    [System.Text.Json.Serialization.JsonStringEnumMemberName(@"everyOtherYear")]
-    EveryOtherYear = 12,
-
+    [JsonStringEnumMemberName("everyOtherYear")]
+    EveryOtherYear,
 }

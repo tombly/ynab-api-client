@@ -1,20 +1,12 @@
-namespace Ynab.Api.Client;
+using System.Text.Json.Serialization;
 
-[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.6.3.0 (NJsonSchema v11.5.2.0 (Newtonsoft.Json v13.0.0.0))")]
-public partial class PostScheduledTransactionWrapper
+namespace Ynab.Api.Client.Models;
+
+public sealed record PostScheduledTransactionWrapper
 {
+    [JsonPropertyName("scheduled_transaction")]
+    public required SaveScheduledTransaction ScheduledTransaction { get; init; }
 
-    [System.Text.Json.Serialization.JsonPropertyName("scheduled_transaction")]
-    [System.ComponentModel.DataAnnotations.Required]
-    public SaveScheduledTransaction Scheduled_transaction { get; set; } = new SaveScheduledTransaction();
-
-    private System.Collections.Generic.IDictionary<string, object>? _additionalProperties;
-
-    [System.Text.Json.Serialization.JsonExtensionData]
-    public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-    {
-        get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-        set { _additionalProperties = value; }
-    }
-
+    [JsonExtensionData]
+    public IDictionary<string, object?>? AdditionalProperties { get; init; }
 }
